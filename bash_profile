@@ -4,7 +4,7 @@ if [ -f ~/.bash_profile.local ]; then
 fi
 
 # 環境変数の設定
-export PATH=~/bin:~/bin.local:$PATH
+export PATH=~/bin:~/bin.public:~/bin.private:~/setman:$PATH
 
 # tmux and ssh-agent
 # via http://robinwinslow.co.uk/2012/07/20/tmux-and-ssh-auto-login-with-ssh-agent-finally.html
