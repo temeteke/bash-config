@@ -36,9 +36,9 @@ fi
 
 # プロンプト
 if type __git_ps1 > /dev/null 2>&1; then
-	PS1_GIT='\[\033[31m\]$(__git_ps1)'
+	export PS1_GIT='\[\033[31m\]$(__git_ps1)'
 else
-	PS1_GIT=''
+	export PS1_GIT=''
 fi
 export PS1='\[\033[33m\]\u@\h \[\033[36m\]\t \[\033[34m\]\w$PS1_GIT\[\033[00m\]\n\$ '
 
