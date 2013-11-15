@@ -1,0 +1,15 @@
+# viモードに
+set editing-mode vi
+
+# 大文字小文字の区別をなくす
+# via http://d.hatena.ne.jp/yuta84q/20081108/1226146144
+set completion-ignore-case on
+
+# 履歴補完で前方一致を利用
+# via http://d.hatena.ne.jp/yuta84q/20081108/1226146144
+"\C-n": history-search-forward
+"\C-p": history-search-backward
+"\e[A": history-search-backward
+"\e[0A": history-search-backward
+"\e[B": history-search-forward
+"\e[0B": history-search-forward
