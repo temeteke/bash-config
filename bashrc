@@ -35,7 +35,7 @@ if which git > /dev/null 2>&1; then
 fi
 
 # プロンプト
-if which git > /dev/null 2>&1; then
+if type __git_ps1 > /dev/null 2>&1; then
 	export PS1='\[\033[33m\]\u@\h \[\033[36m\]\t \[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]\n\$ '
 else
 	export PS1='\[\033[33m\]\u@\h \[\033[36m\]\t \[\033[34m\]\w\[\033[00m\]\n\$ '
