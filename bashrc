@@ -44,7 +44,11 @@ fi
 PS1_LEFT="\[\033[1;33m\]\u@\h \[\033[0;34m\]\w$PS1_GIT"
 PS1_RIGHT="\[\033[0;36m\][`date '+%F %T'`]"
 PS1_2="\[\033[1;37m\]\$ "
-export PS1="$PS1_LEFT\[\033[$[COLUMNS]D\]\[\033[$[COLUMNS-21]C\]$PS1_RIGHT\n$PS1_2\[\033[0m\]"
+if [ $COLUMNS -eq 0 ]; then
+	export PS1="$PS1_LEFT $PS1_RIGHT\n$PS1_2\[\033[0m\]"	# for Cygwin
+else
+	export PS1="$PS1_LEFT\r\[\033[$[COLUMNS-21]C\]$PS1_RIGHT\n$PS1_2\[\033[0m\]"
+fi
 
 export CLICOLOR=1
 
