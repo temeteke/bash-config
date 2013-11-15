@@ -35,12 +35,16 @@ if which git > /dev/null 2>&1; then
 fi
 
 # プロンプト
+# via http://d.hatena.ne.jp/notogawa/20120720/1342756620
 if type __git_ps1 > /dev/null 2>&1; then
 	PS1_GIT='\[\033[0;31m\]$(__git_ps1)'
 else
 	PS1_GIT=''
 fi
-export PS1="\[\033[1;33m\]\u@\h \[\033[0;36m\]\t \[\033[0;34m\]\w$PS1_GIT\[\033[0m\]\n\$ "
+PS1_LEFT="\[\033[1;33m\]\u@\h \[\033[0;34m\]\w$PS1_GIT"
+PS1_RIGHT="\[\033[0;36m\][`date '+%F %T'`]"
+PS1_2="\[\033[1;37m\]\$ "
+export PS1="$PS1_LEFT\[\033[$[COLUMNS]D\]\[\033[$[COLUMNS-21]C\]$PS1_RIGHT\n$PS1_2\[\033[0m\]"
 
 export CLICOLOR=1
 
