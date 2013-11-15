@@ -33,10 +33,12 @@ if [ -z "$TMUX" ]; then
 
 	# start tmux
 	# via http://www.omakase.org/misc/tmux_screen.html
-	if [ -z `tmux ls` ] ; then
-		tmux
-	else
-		tmux attach
+	if which tmux 2> /dev/null; then
+		if [ -z `tmux ls` ] ; then
+			tmux
+		else
+			tmux attach
+		fi
 	fi
 fi
 
