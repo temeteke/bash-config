@@ -33,7 +33,7 @@ if [ -z "$TMUX" ]; then
 
 	# start tmux
 	# via http://www.omakase.org/misc/tmux_screen.html
-	if which tmux 2> /dev/null; then
+	if which tmux > /dev/null 2>&1; then
 		if [ -z `tmux ls` ] ; then
 			tmux
 		else

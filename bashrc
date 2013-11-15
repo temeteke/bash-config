@@ -1,31 +1,40 @@
-# Gitのブランチを表示
-# Mac
-if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
-	source /usr/local/etc/bash_completion.d/git-prompt.sh
+if which git > /dev/null 2>&1; then
+	# Gitのブランチを表示 TODO:ここ必要か?
+	# Mac
+	if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
+		source /usr/local/etc/bash_completion.d/git-prompt.sh
+	fi
+	if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
+		source /usr/local/etc/bash_completion.d/git-completion.bash
+	fi
+	# Ubuntu
+	if [ -f /etc/bash_completion.d/git-prompt ]; then
+		source /etc/bash_completion.d/git-prompt
+	fi
+	if [ -f /etc/bash_completion.d/git ]; then
+		source /etc/bash_completion.d/git
+	fi
+	# FreeBSD
+	if [ -f /usr/local/share/git-core/contrib/completion/git-prompt.sh ]; then
+		source /usr/local/share/git-core/contrib/completion/git-prompt.sh
+	fi
+	if [ -f /usr/local/share/git-core/contrib/completion/git-completion.bash ]; then
+		source /usr/local/share/git-core/contrib/completion/git-completion.bash
+	fi
+	# Fedora
+	if [ -f /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
+		source /usr/share/git-core/contrib/completion/git-prompt.sh
+	fi
+	GIT_PS1_SHOWDIRTYSTATE=true
 fi
-if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
-	source /usr/local/etc/bash_completion.d/git-completion.bash
+
+# プロンプト
+if which git > /dev/null 2>&1; then
+	export PS1='\[\033[33m\]\u@\h \[\033[36m\]\t \[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]\n\$ '
+else
+	export PS1='\[\033[33m\]\u@\h \[\033[36m\]\t \[\033[34m\]\w\[\033[00m\]\n\$ '
 fi
-# Ubuntu
-if [ -f /etc/bash_completion.d/git-prompt ]; then
-	source /etc/bash_completion.d/git-prompt
-fi
-if [ -f /etc/bash_completion.d/git ]; then
-	source /etc/bash_completion.d/git
-fi
-# FreeBSD
-if [ -f /usr/local/share/git-core/contrib/completion/git-prompt.sh ]; then
-	source /usr/local/share/git-core/contrib/completion/git-prompt.sh
-fi
-if [ -f /usr/local/share/git-core/contrib/completion/git-completion.bash ]; then
-	source /usr/local/share/git-core/contrib/completion/git-completion.bash
-fi
-# Fedora
-if [ -f /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
-	source /usr/share/git-core/contrib/completion/git-prompt.sh
-fi
-GIT_PS1_SHOWDIRTYSTATE=true
-export PS1='\[\033[33m\]\u@\h \[\033[36m\]\t \[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]\n\$ '
+
 export CLICOLOR=1
 
 # カラーの設定
