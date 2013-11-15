@@ -36,11 +36,11 @@ fi
 
 # プロンプト
 if type __git_ps1 > /dev/null 2>&1; then
-	PS1_GIT='\[\033[31m\]$(__git_ps1)'
+	PS1_GIT='\[\033[0;31m\]$(__git_ps1)'
 else
 	PS1_GIT=''
 fi
-export PS1="\[\033[33m\]\u@\h \[\033[36m\]\t \[\033[34m\]\w$PS1_GIT\[\033[00m\]\n\$ "
+export PS1="\[\033[0;33m\]\u@\h \[\033[0;36m\]\t \[\033[0;34m\]\w$PS1_GIT\[\033[0m\]\n\$ "
 
 export CLICOLOR=1
 
