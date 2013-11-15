@@ -1,5 +1,4 @@
 if which git > /dev/null 2>&1; then
-	# Gitのブランチを表示 TODO:ここ必要か?
 	# Mac
 	if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
 		source /usr/local/etc/bash_completion.d/git-prompt.sh
@@ -24,6 +23,13 @@ if which git > /dev/null 2>&1; then
 	# Fedora
 	if [ -f /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
 		source /usr/share/git-core/contrib/completion/git-prompt.sh
+	fi
+	# Arch Linux
+	if [ -f /usr/share/git/completion/git-completion.bash ]; then
+		source /usr/share/git/completion/git-completion.bash
+	fi
+	if [ -f /usr/share/git/completion/git-prompt.sh ]; then
+		source /usr/share/git/completion/git-prompt.sh
 	fi
 	GIT_PS1_SHOWDIRTYSTATE=true
 fi
