@@ -58,7 +58,7 @@ fi
 export CLICOLOR=1
 
 # カラーの設定
-if [ $OSTYPE = "linux-gnu" ]; then
+if [ $OSTYPE = "linux-gnu" ] || [ $OSTYPE = "cygwin" ]; then
 	# enable color support of ls and also add handy aliases
 	if [ -x /usr/bin/dircolors ]; then
 	    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
