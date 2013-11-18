@@ -80,18 +80,22 @@ alias l=ls
 # Cygwinの文字化け対策
 # via http://orumin.blogspot.jp/2012/05/cygwin-linuxwindows-gccvimusb.html
 if [ $OSTYPE = "cygwin" ]; then
+	alias ipconfig="cocot ipconfig"
 	alias ifconfig="cocot ipconfig"
 	alias ping="cocot ping"
 	alias arp="cocot arp"
 	alias nslookup="cocot nslookup"
 	alias traceroute="cocot tracert"
+	alias tracert="cocot tracert"
 	alias route="cocot route"
 	alias netstat="cocot netstat" 
 fi
 
 # エディタの設定
-export EDITOR=vim
-export SVN_EDITOR=vi
+if type vim > /dev/null 2>&1; then
+	export EDITOR=vim
+	export SVN_EDITOR=vim
+fi
 
 # 環境固有の設定を読み込む
 if [ -f ~/.bashrc.local ]; then
