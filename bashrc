@@ -1,3 +1,8 @@
+# bash completion
+if [ -f /etc/bash_completion ]; 
+	. /etc/bash_completion
+fi
+
 if which git > /dev/null 2>&1; then
 	# Mac
 	if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
