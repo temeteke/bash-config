@@ -52,7 +52,7 @@ PS1_2="\[\033[1;37m\]\$ "
 if [ $[COLUMNS] -eq 0 ]; then
 	export PS1="$PS1_LEFT $PS1_RIGHT\n$PS1_2\[\033[0m\]"	# for Cygwin
 else
-	export PS1="$PS1_LEFT\r\[\033[$[COLUMNS-21]C\]$PS1_RIGHT\n$PS1_2\[\033[0m\]"
+	export PS1="$PS1_LEFT\r"'\[\033[$[COLUMNS-21]C\]'"$PS1_RIGHT\n$PS1_2\[\033[0m\]"
 fi
 
 export CLICOLOR=1
