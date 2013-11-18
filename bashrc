@@ -12,12 +12,12 @@ if which git > /dev/null 2>&1; then
 		source /usr/local/etc/bash_completion.d/git-completion.bash
 	fi
 	# Ubuntu
-	if [ -f /etc/bash_completion.d/git-prompt ]; then
-		source /etc/bash_completion.d/git-prompt
-	fi
-	if [ -f /etc/bash_completion.d/git ]; then
-		source /etc/bash_completion.d/git
-	fi
+	#if [ -f /etc/bash_completion.d/git-prompt ]; then
+	#	source /etc/bash_completion.d/git-prompt
+	#fi
+	#if [ -f /etc/bash_completion.d/git ]; then
+	#	source /etc/bash_completion.d/git
+	#fi
 	# FreeBSD
 	if [ -f /usr/local/share/git-core/contrib/completion/git-prompt.sh ]; then
 		source /usr/local/share/git-core/contrib/completion/git-prompt.sh
