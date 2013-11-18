@@ -79,7 +79,7 @@ alias l=ls
 
 # Cygwinの文字化け対策
 # via http://orumin.blogspot.jp/2012/05/cygwin-linuxwindows-gccvimusb.html
-if [ $OSTYPE = "cygwin" ]; then
+if [ $OSTYPE = "cygwin" ] && type cocot > /dev/null 2>&1; then
 	alias ipconfig="cocot ipconfig"
 	alias ifconfig="cocot ipconfig"
 	alias ping="cocot ping"
