@@ -9,3 +9,12 @@ set completion-ignore-case on
 # via http://d.hatena.ne.jp/yuta84q/20081108/1226146144
 "\C-n": history-search-forward
 "\C-p": history-search-backward
+
+"\e[1~": beginning-of-line
+"\e[4~": end-of-line
+
+"\C-o": kill-line
+
+set keymap vi-command
+"\e[1~": beginning-of-line
+"\e[4~": end-of-line
