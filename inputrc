@@ -1,5 +1,5 @@
 # viモードに
-set editing-mode vi
+#set editing-mode vi
 
 # 大文字小文字の区別をなくす
 # via http://d.hatena.ne.jp/yuta84q/20081108/1226146144
