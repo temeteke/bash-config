@@ -10,10 +10,13 @@ set completion-ignore-case on
 "\C-n": history-search-forward
 "\C-p": history-search-backward
 
+# home end
 "\e[1~": beginning-of-line
 "\e[4~": end-of-line
 
+# delete with ctrl key
 "\C-o": kill-line
+"\C-l": delete-char
 
 set keymap vi-command
 "\e[1~": beginning-of-line
