@@ -57,6 +57,12 @@ fi
 
 export CLICOLOR=1
 
+# コマンドのエイリアス
+alias ls='ls --time-style=long-iso'
+alias vi=vim
+alias sl=ls
+alias l=ls
+
 # カラーの設定
 if [ $OSTYPE = "linux-gnu" ] || [ $OSTYPE = "cygwin" ]; then
 	# enable color support of ls and also add handy aliases
@@ -71,12 +77,6 @@ if [ $OSTYPE = "linux-gnu" ] || [ $OSTYPE = "cygwin" ]; then
 	    alias egrep='egrep --color=auto'
 	fi
 fi
-
-# コマンドのエイリアス
-alias ls='ls --time-style=long-iso'
-alias vi=vim
-alias sl=ls
-alias l=ls
 
 # Cygwinの文字化け対策
 # via http://orumin.blogspot.jp/2012/05/cygwin-linuxwindows-gccvimusb.html
