@@ -73,6 +73,7 @@ if [ $OSTYPE = "linux-gnu" ] || [ $OSTYPE = "cygwin" ]; then
 fi
 
 # コマンドのエイリアス
+alias ls='ls --time-style=long-iso'
 alias vi=vim
 alias sl=ls
 alias l=ls
