@@ -58,25 +58,17 @@ fi
 export CLICOLOR=1
 
 # コマンドのエイリアス
-alias ls='ls --time-style=long-iso'
 alias vi=vim
 alias sl=ls
 alias l=ls
 
-# カラーの設定
-if [ $OSTYPE = "linux-gnu" ] || [ $OSTYPE = "cygwin" ]; then
-	# enable color support of ls and also add handy aliases
-	if [ -x /usr/bin/dircolors ]; then
-	    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-	    alias ls='ls --time-style=long-iso --color=auto'
-	    #alias dir='dir --color=auto'
-	    #alias vdir='vdir --color=auto'
+alias ls='ls --time-style=long-iso --color=auto'
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
 
-		alias grep='grep --color=auto'
-	    alias fgrep='fgrep --color=auto'
-	    alias egrep='egrep --color=auto'
-	fi
-fi
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 
 # Cygwinの文字化け対策
 # via http://orumin.blogspot.jp/2012/05/cygwin-linuxwindows-gccvimusb.html
