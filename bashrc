@@ -62,13 +62,12 @@ alias vi=vim
 alias sl=ls
 alias l=ls
 
-alias ls='ls --time-style=long-iso --color=auto'
-alias dir='dir --color=auto'
-alias vdir='vdir --color=auto'
-
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
+if [ $OSTYPE = "linux-gnu" ] || [ $OSTYPE = "cygwin" ]; then
+	alias ls='ls --color=auto --time-style=long-iso'
+	alias grep='grep --color=auto'
+	alias fgrep='fgrep --color=auto'
+	alias egrep='egrep --color=auto'
+fi
 
 # Cygwinの文字化け対策
 # via http://orumin.blogspot.jp/2012/05/cygwin-linuxwindows-gccvimusb.html
