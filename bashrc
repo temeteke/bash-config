@@ -58,7 +58,6 @@ fi
 export CLICOLOR=1
 
 # コマンドのエイリアス
-alias vi=vim
 alias sl=ls
 alias l=ls
 
