@@ -106,3 +106,13 @@ esac
 if [ -t 0 ]; then
 	stty -ixon -ixoff
 fi
+
+# cd to public
+function cdp {
+	[ $# -eq 0 ] && path=$PWD || path=$*
+	path=$(cd $(dirname "$path") && pwd)/$(basename "$path")
+	case $path in
+		/home/$USER*) cd ${path/\/home\/$USER/\/home\/public} ;;
+		/home/public*) cd ${path/\/home\/public/\/home\/$USER} ;;
+	esac
+}
