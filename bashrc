@@ -61,6 +61,7 @@ export CLICOLOR=1
 alias sl=ls
 alias l=ls
 alias crontab='crontab -i'
+alias less='less -R'
 
 if [ $OSTYPE = "linux-gnu" ] || [ $OSTYPE = "cygwin" ]; then
 	alias ls='ls --color=auto --time-style=long-iso'
