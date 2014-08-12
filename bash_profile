@@ -7,7 +7,7 @@ fi
 export PATH=~/bin.local:~/bin:~/setman:$PATH
 
 # umask
-umask 077
+umask 027
 
 # tmux and ssh-agent
 # via http://robinwinslow.co.uk/2012/07/20/tmux-and-ssh-auto-login-with-ssh-agent-finally.html
