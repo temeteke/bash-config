@@ -64,7 +64,7 @@ alias crontab='crontab -i'
 alias less='less -R'
 
 if echo $OSTYPE | grep linux > /dev/null || [ $OSTYPE = "cygwin" ]; then
-	alias ls='ls --color=auto --time-style=long-iso'
+	alias ls='ls -v --color=auto --time-style=long-iso'
 	alias grep='grep --color=auto'
 	alias fgrep='fgrep --color=auto'
 	alias egrep='egrep --color=auto'
