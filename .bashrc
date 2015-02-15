@@ -25,7 +25,7 @@ if [ -z "$TMUX" ]; then
 
 	# start tmux
 	# via http://www.omakase.org/misc/tmux_screen.html
-	if which tmux > /dev/null 2>&1; then
+	if tty > /dev/null && which tmux > /dev/null 2>&1; then
 		if [ -z "$(tmux ls)" ] ; then
 			tmux
 		else
