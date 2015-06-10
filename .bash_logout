@@ -5,6 +5,6 @@ fi
 
 # ssh-agent
 ps=$(ps)
-if [ $(echo $ps | grep bash | wc -l) -eq 1 ]; then
+if [ $(echo "$ps" | grep bash | wc -l) -eq 1 ]; then
 	eval `ssh-agent -ks`	# k:kill s:bash syntax
 fi
