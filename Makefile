@@ -2,11 +2,15 @@ PREFIX := ~
 FILES := .bashrc .bash_profile .bash_logout .inputrc
 
 .PHONY: all clean install uninstall FORCE
-all:
+all: .bashrc
+
+.bashrc: .bashrc.color .bashrc.misc .bashrc.prompt
+	cat $^ > $@
 
 clean:
+	rm .bashrc
 
-install:
+install: $(FILES)
 	cp $(FILES) $(PREFIX)/
 		
 uninstall:

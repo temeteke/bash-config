@@ -80,15 +80,6 @@ if which git > /dev/null 2>&1; then
 	GIT_PS1_SHOWDIRTYSTATE=true
 fi
 
-# プロンプト
-# via http://d.hatena.ne.jp/notogawa/20120720/1342756620
-if type __git_ps1 > /dev/null 2>&1; then
-	PS1_GIT='\[\033[0;31m\]$(__git_ps1)'
-else
-	PS1_GIT=''
-fi
-export PS1='\[\033[0;33m\]\u@\h \[\033[0;36m\][$(date "+%F %T")] \[\033[0;34m\]\w'$PS1_GIT'\n\[\033[0;37m\]\$ \[\033[0m\]'
-
 export CLICOLOR=1
 
 # コマンドのエイリアス
