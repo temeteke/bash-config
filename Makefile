@@ -12,7 +12,6 @@ clean:
 
 install: $(FILES)
 	cp $(FILES) $(PREFIX)/
-	. $(PREFIX)/.bashrc
 		
 uninstall:
 	rm $(addprefix $(PREFIX)/, $(FILES))
