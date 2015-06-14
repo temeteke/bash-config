@@ -1,8 +1,7 @@
-# http://d.hatena.ne.jp/notogawa/20120720/1342756620
 if type __git_ps1 > /dev/null 2>&1; then
-	PS1_GIT=$txtred'$(__git_ps1)'
+	PS1_GIT="$txtred\$(__git_ps1)"
 else
-	PS1_GIT=''
+	PS1_GIT=""
 fi
 
-export PS1=$txtylw'\u@\h '$txtcyn'[$(date "+%F %T")] '$txtblu'\w'$PS1_GIT'\n'$txtwht'$ '$txtrst
+export PS1="$txtylw\u@\h $txtcyn[\$(date '+%F %T')] $txtblu\w$PS1_GIT\n$txtwht$ $txtrst"
