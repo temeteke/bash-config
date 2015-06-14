@@ -6,4 +6,4 @@ fi
 
 export PS1="$txtylw\u@\h $txtcyn[\$(date '+%F %T')] $txtblu\w$PS1_GIT\n$txtwht$ $txtrst"
 
-export PROMPT_COMMAND="echo \$?"
+export PROMPT_COMMAND='printf "(%d) " $?'
