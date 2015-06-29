@@ -4,7 +4,8 @@ if [ -f ~/.bash_logout.local ]; then
 fi
 
 # ssh-agent
-ps=$(ps)
-if [ $(echo "$ps" | grep bash | wc -l) -eq 1 ]; then
+fieldIndex=2
+[ $OSTYPE = "cygwin" ] && fieldIndex=5
+if [ $(ps | awk 'NR != 1 && $'$fieldIndex' ~ /tty|pts|pty/ {print $'$fieldIndex'}' | sort | uniq | wc -l) -eq 1 ]; then
 	eval `ssh-agent -ks`	# k:kill s:bash syntax
 fi
