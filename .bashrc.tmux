@@ -5,6 +5,9 @@ tmux () {
 				export $var
 			done
 			;;
+		"")
+			$(which tmux)
+			;;
 		*)
 			$(which tmux) "$*"
 			;;
