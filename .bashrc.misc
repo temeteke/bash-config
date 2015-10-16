@@ -115,11 +115,6 @@ if type vim > /dev/null 2>&1; then
 	export SVN_EDITOR=vim
 fi
 
-# 環境固有の設定を読み込む
-if [ -f ~/.bashrc.local ]; then
-    source ~/.bashrc.local
-fi
-
 # 日本語の設定
 case $TERM in
 	linux) export LANG=C ;;
