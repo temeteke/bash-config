@@ -10,7 +10,7 @@ tmux () {
 			$(which tmux)
 			;;
 		*)
-			$(which tmux) "$*"
+			$(which tmux) $*
 			;;
 	esac
 }
