@@ -6,9 +6,6 @@ fi
 # 環境変数の設定
 export PATH=~/bin:$PATH
 
-# umask
-umask 027
-
 # .bashrcを読み込む
 if [ -f ~/.bashrc ]; then
 	. ~/.bashrc
