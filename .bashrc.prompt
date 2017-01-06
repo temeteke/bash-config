@@ -4,6 +4,12 @@ else
 	PS1_GIT=""
 fi
 
-export PS1="$txtylw\u@\h $txtcyn[\$(date '+%F %T')] $txtblu\w$PS1_GIT"$'\n'"$txtwht$ $txtrst"
+if [ -n "$MSYSTEM" ]; then
+	PS1_MSYSTEM="$txtpur$MSYSTEM "
+else
+	PS1_MSYSTEM=""
+fi
+
+export PS1="$txtylw\u@\h $PS1_MSYSTEM$txtcyn[\$(date '+%F %T')] $txtblu\w$PS1_GIT"$'\n'"$txtwht$ $txtrst"
 
 export PROMPT_COMMAND='printf "(%d) " $?'
