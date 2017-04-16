@@ -95,18 +95,25 @@ if echo $OSTYPE | grep linux > /dev/null || [ $OSTYPE = "cygwin" ]; then
 	alias egrep='egrep --color=auto'
 fi
 
-# Cygwinの文字化け対策
-# via http://orumin.blogspot.jp/2012/05/cygwin-linuxwindows-gccvimusb.html
-if [ $OSTYPE = "cygwin" ] && type cocot > /dev/null 2>&1; then
-	alias ipconfig="cocot ipconfig"
-	alias ifconfig="cocot ipconfig"
-	alias ping="cocot ping"
-	alias arp="cocot arp"
-	alias nslookup="cocot nslookup"
-	alias traceroute="cocot tracert"
-	alias tracert="cocot tracert"
-	alias route="cocot route"
-	alias netstat="cocot netstat" 
+# Windows character encoding convert
+# http://myfuturesightforpast.blogspot.jp/2015/10/cygwinmsys2windows.html
+if [ "$OS" = "Windows_NT" ]; then
+	wincmd(){
+		CMD=$1
+		shift
+		$CMD $* 2>&1 | iconv -f cp932 -t utf-8
+	}
+
+	alias ipconfig='wincmd ipconfig'
+	alias ping='wincmd ping'
+	alias arp='wincmd arp'
+	alias nslookup='wincmd nslookup'
+	alias netstat='wincmd netstat'
+	alias tracert='wincmd tracert'
+	alias netsh='wincmd netsh'
+	alias taskkill='wincmd taskkill'
+	alias cs='wincmd cscript.exe -NoLogo'
+	alias ws='wincmd wscript.exe -NoLogo'
 fi
 
 # エディタの設定
