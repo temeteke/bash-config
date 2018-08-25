@@ -116,6 +116,10 @@ if [ "$OS" = "Windows_NT" ]; then
 	alias ws='wincmd wscript.exe -NoLogo'
 fi
 
+if type winpty > /dev/null 2>&1; then
+	alias docker='winpty docker'
+fi
+
 # エディタの設定
 if type vim > /dev/null 2>&1; then
 	export EDITOR=vim
