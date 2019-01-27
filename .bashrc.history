@@ -1,2 +1,3 @@
-# http://iandeth.dyndns.org/mt/ian/archives/000651.html
-shopt -u histappend
+HISTSIZE=10000
+HISTFILESIZE=10000
+HISTTIMEFORMAT='%Y/%m/%d %H:%M:%S '
