@@ -8,6 +8,9 @@ BASHRCS := .bashrc.color .bashrc.misc .bashrc.prompt .bashrc.tmux .bashrc.histor
 ifneq ($(shell which direnv 2>/dev/null),)
 	BASHRCS := $(BASHRCS) .bashrc.direnv
 endif
+ifneq ($(shell which fzf 2>/dev/null),)
+	BASHRCS := $(BASHRCS) .bashrc.fzf
+endif
 
 .bashrc: $(BASHRCS)
 	cat $^ > $@
