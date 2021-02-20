@@ -13,8 +13,6 @@ fi
 
 # bash起動時に起動する物
 if [ -z "$TMUX" ]; then
-	eval $(ssh-agent)
-
 	if tty > /dev/null && which tmux > /dev/null 2>&1; then
 		if [ -z "$(tmux ls)" ] ; then
 			tmux
