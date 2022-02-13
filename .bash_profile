@@ -14,7 +14,15 @@ fi
 # bash起動時に起動する物
 if [ -z "$TMUX" ]; then
 	if [ -z "$SSH_AUTH_SOCK" ]; then
-		eval $(ssh-agent)
+		if type npiperelay.exe > /dev/null 2>&1; then
+			export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
+			if ! ss -a | grep -q "$SSH_AUTH_SOCK"; then
+				rm -f $SSH_AUTH_SOCK
+				( setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork & ) >/dev/null 2>&1
+			fi
+		else
+			eval $(ssh-agent)
+		fi
 	fi
 
 	# WSLならtmuxを起動しない
