@@ -1,48 +1,8 @@
 # Source global definitions
-if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
-fi
+test -f /etc/bashrc && . $_
 
 # bash completion
-if [ -f /etc/bash_completion ]; then
-	. /etc/bash_completion
-fi
-
-if which git > /dev/null 2>&1; then
-	# Mac
-	if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
-		source /usr/local/etc/bash_completion.d/git-prompt.sh
-	fi
-	if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
-		source /usr/local/etc/bash_completion.d/git-completion.bash
-	fi
-	# Ubuntu
-	#if [ -f /etc/bash_completion.d/git-prompt ]; then
-	#	source /etc/bash_completion.d/git-prompt
-	#fi
-	#if [ -f /etc/bash_completion.d/git ]; then
-	#	source /etc/bash_completion.d/git
-	#fi
-	# FreeBSD
-	if [ -f /usr/local/share/git-core/contrib/completion/git-prompt.sh ]; then
-		source /usr/local/share/git-core/contrib/completion/git-prompt.sh
-	fi
-	if [ -f /usr/local/share/git-core/contrib/completion/git-completion.bash ]; then
-		source /usr/local/share/git-core/contrib/completion/git-completion.bash
-	fi
-	# Fedora
-	if [ -f /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
-		source /usr/share/git-core/contrib/completion/git-prompt.sh
-	fi
-	# Arch Linux
-	if [ -f /usr/share/git/completion/git-completion.bash ]; then
-		source /usr/share/git/completion/git-completion.bash
-	fi
-	if [ -f /usr/share/git/completion/git-prompt.sh ]; then
-		source /usr/share/git/completion/git-prompt.sh
-	fi
-	GIT_PS1_SHOWDIRTYSTATE=true
-fi
+test -f /etc/bash_completion && . $_
 
 export CLICOLOR=1
 

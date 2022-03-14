@@ -1,0 +1,5 @@
+# Arch Linux
+test -f /usr/share/git/completion/git-completion.bash && . $_
+test -f /usr/share/git/completion/git-prompt.sh && . $_
+
+GIT_PS1_SHOWDIRTYSTATE=true

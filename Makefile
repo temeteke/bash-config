@@ -4,7 +4,13 @@ FILES := .bashrc .bash_profile .bash_logout .inputrc
 .PHONY: all clean install uninstall FORCE
 all: .bashrc
 
-BASHRCS := .bashrc.color .bashrc.misc .bashrc.prompt .bashrc.tmux .bashrc.fzf .bashrc.history .bashrc.local
+BASHRCS := .bashrc.color .bashrc.misc .bashrc.prompt .bashrc.history .bashrc.local
+ifneq ($(shell which git 2>/dev/null),)
+	BASHRCS := $(BASHRCS) .bashrc.git
+endif
+ifneq ($(shell which tmux 2>/dev/null),)
+	BASHRCS := $(BASHRCS) .bashrc.tmux
+endif
 ifneq ($(shell which direnv 2>/dev/null),)
 	BASHRCS := $(BASHRCS) .bashrc.direnv
 endif
