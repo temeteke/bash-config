@@ -10,6 +10,4 @@ else
 	PS1_MSYSTEM=""
 fi
 
-export PS1="$txtylw\u@\h $PS1_MSYSTEM$txtcyn[\$(date '+%F %T')] $txtblu\w$PS1_GIT"$'\n'"$txtwht$ $txtrst"
-
-export PROMPT_COMMAND='printf "(%d) " $?'
+export PS1="(\$?) $txtylw\u@\h $PS1_MSYSTEM$txtcyn[\$(date '+%F %T')] $txtblu\w$PS1_GIT"$'\n'"$txtwht$ $txtrst"
