@@ -4,7 +4,7 @@ FILES := .bashrc .bash_profile .bash_logout .inputrc
 .PHONY: all clean install uninstall FORCE
 all: .bashrc
 
-BASHRCS := .bashrc.color .bashrc.misc .bashrc.prompt .bashrc.history .bashrc.alias .bashrc.local
+BASHRCS := .bashrc.misc .bashrc.color .bashrc.history .bashrc.alias
 ifneq ($(shell which git 2>/dev/null),)
 	BASHRCS := $(BASHRCS) .bashrc.git
 endif
@@ -17,6 +17,7 @@ endif
 ifneq ($(shell which fzf 2>/dev/null),)
 	BASHRCS := $(BASHRCS) .bashrc.fzf
 endif
+BASHRCS := $(BASHRCS) .bashrc.prompt .bashrc.local
 
 # コマンドをインストールした後に$(BASHRCS)が変化するため毎回生成する
 .bashrc: FORCE
