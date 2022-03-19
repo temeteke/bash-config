@@ -33,3 +33,6 @@ bakpur='\[\e[45m\]'   # Purple
 bakcyn='\[\e[46m\]'   # Cyan
 bakwht='\[\e[47m\]'   # White
 txtrst='\[\e[0m\]'    # Text Reset
+
+export CLICOLOR=1
+export SYSTEMD_COLORS=1
