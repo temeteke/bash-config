@@ -11,26 +11,24 @@ if [ -f ~/.bashrc ]; then
 	. ~/.bashrc
 fi
 
-# bash起動時に起動する物
-if [ -z "$TMUX" ]; then
-	if [ -z "$SSH_AUTH_SOCK" ]; then
-		if type npiperelay.exe > /dev/null 2>&1; then
-			export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
-			if ! ss -a | grep -q "$SSH_AUTH_SOCK"; then
-				rm -f $SSH_AUTH_SOCK
-				( setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork & ) >/dev/null 2>&1
-			fi
-		else
-			eval $(ssh-agent)
-		fi
+# tmuxを自動起動（WSL以外）
+if [ -z "$WSL_DISTRO_NAME" ] && [ -z "$TMUX" ] && tty > /dev/null && which tmux > /dev/null 2>&1; then
+	if [ -z "$(tmux ls)" ]; then
+		tmux
+	else
+		tmux attach
 	fi
+fi
 
-	# WSLならtmuxを起動しない
-	if [ -z "$WSL_DISTRO_NAME" ] && tty > /dev/null && which tmux > /dev/null 2>&1; then
-		if [ -z "$(tmux ls)" ] ; then
-			tmux
-		else
-			tmux attach
+# ssh-agent
+if [ -z "$SSH_AUTH_SOCK" ]; then
+	if type npiperelay.exe > /dev/null 2>&1; then
+		export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
+		if ! pgrep -f 'npiperelay.exe -ei -s //./pipe/openssh-ssh-agent' > /dev/null; then
+			rm $SSH_AUTH_SOCK
+			( setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork & ) >/dev/null 2>&1
 		fi
+	else
+		eval $(ssh-agent)
 	fi
 fi
