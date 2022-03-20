@@ -18,7 +18,7 @@ if [ -z "$SSH_AUTH_SOCK" ]; then
 	# Windowsの場合、Windowsのssh-agentを使う
 	if type npiperelay.exe > /dev/null 2>&1; then
 		if ! pgrep -f 'npiperelay.exe -ei -s //./pipe/openssh-ssh-agent' > /dev/null; then
-			rm $SSH_AUTH_SOCK
+			rm -f $SSH_AUTH_SOCK
 			( setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork & ) >/dev/null 2>&1
 		fi
 	else
