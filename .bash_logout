@@ -1,6 +1,6 @@
 # 環境固有の設定を読み込む
 if [ -f ~/.bash_logout.local ]; then
-    source ~/.bash_logout.local
+	source ~/.bash_logout.local
 fi
 
 # ssh-agentが起動していてtmux以外でbashを終了した場合はssh-agentを終了する
