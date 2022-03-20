@@ -22,13 +22,25 @@ fi
 
 # ssh-agent
 if [ -z "$SSH_AUTH_SOCK" ]; then
+	export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
+
+	# Windowsの場合、Windowsのssh-agentを使う
 	if type npiperelay.exe > /dev/null 2>&1; then
-		export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
 		if ! pgrep -f 'npiperelay.exe -ei -s //./pipe/openssh-ssh-agent' > /dev/null; then
 			rm $SSH_AUTH_SOCK
 			( setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork & ) >/dev/null 2>&1
 		fi
 	else
-		eval $(ssh-agent)
+		# ssh-agentを起動する
+		# $SSH_AUTH_SOCKがなければ作成する
+		if [ ! -S "$SSH_AUTH_SOCK" ]; then
+			eval $(ssh-agent -a $SSH_AUTH_SOCK)
+			echo $SSH_AGENT_PID > $HOME/.ssh/agent.pid
+		fi
+
+		# PIDを復元する
+		if [ -z "$SSH_AGENT_PID" ]; then
+			export SSH_AGENT_PID=$(cat $HOME/.ssh/agent.pid)
+		fi
 	fi
 fi
