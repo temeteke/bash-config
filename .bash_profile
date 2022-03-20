@@ -11,15 +11,6 @@ if [ -f ~/.bashrc ]; then
 	. ~/.bashrc
 fi
 
-# tmuxを自動起動（WSL以外）
-if [ -z "$WSL_DISTRO_NAME" ] && [ -z "$TMUX" ] && tty > /dev/null && which tmux > /dev/null 2>&1; then
-	if [ -z "$(tmux ls)" ]; then
-		tmux
-	else
-		tmux attach
-	fi
-fi
-
 # ssh-agent
 if [ -z "$SSH_AUTH_SOCK" ]; then
 	export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
@@ -42,5 +33,14 @@ if [ -z "$SSH_AUTH_SOCK" ]; then
 		if [ -z "$SSH_AGENT_PID" ]; then
 			export SSH_AGENT_PID=$(cat $HOME/.ssh/agent.pid)
 		fi
+	fi
+fi
+
+# tmuxを自動起動（WSL以外）
+if [ -z "$WSL_DISTRO_NAME" ] && [ -z "$TMUX" ] && tty > /dev/null && which tmux > /dev/null 2>&1; then
+	if [ -z "$(tmux ls)" ]; then
+		tmux
+	else
+		tmux attach
 	fi
 fi
