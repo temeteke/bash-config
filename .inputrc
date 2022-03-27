@@ -1,5 +1,11 @@
-# viモードに
-#set editing-mode vi
+# viモード
+set editing-mode vi
+
+# モードをカーソルで示す
+# https://wiki.archlinux.jp/index.php/Readline
+set show-mode-in-prompt on
+set vi-ins-mode-string \1\e[6 q\2
+set vi-cmd-mode-string \1\e[2 q\2
 
 # 大文字小文字の区別をなくす
 # via http://d.hatena.ne.jp/yuta84q/20081108/1226146144
@@ -10,14 +16,6 @@ set completion-ignore-case on
 "\C-n": history-search-forward
 "\C-p": history-search-backward
 
-# home end
-"\e[1~": beginning-of-line
-"\e[4~": end-of-line
-
 # delete with ctrl key
 "\C-o": kill-line
 "\C-l": delete-char
-
-set keymap vi-command
-"\e[1~": beginning-of-line
-"\e[4~": end-of-line
