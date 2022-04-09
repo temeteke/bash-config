@@ -19,3 +19,4 @@ set completion-ignore-case on
 # delete with ctrl key
 "\C-o": kill-line
 "\C-l": delete-char
+"\C-H": backward-kill-word
