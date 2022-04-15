@@ -1,3 +1,8 @@
+# vi modeのための設定
+# 以下修正適用後は不要だが、古いバージョンを使っている場合があるため設定する
+# https://github.com/junegunn/fzf/pull/1815
+set -o vi
+
 # Arch Linux
 test -f /usr/share/fzf/key-bindings.bash && . $_
 test -f /usr/share/fzf/completion.bash && . $_
