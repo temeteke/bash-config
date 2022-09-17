@@ -17,6 +17,9 @@ endif
 ifneq ($(shell which fzf 2>/dev/null),)
 	BASHRCS := $(BASHRCS) .bashrc.fzf
 endif
+ifneq ($(shell which kubectl 2>/dev/null),)
+	BASHRCS := $(BASHRCS) .bashrc.kubernetes
+endif
 BASHRCS := $(BASHRCS) .bashrc.prompt .bashrc.local
 
 # コマンドをインストールした後に$(BASHRCS)が変化するため毎回生成する
