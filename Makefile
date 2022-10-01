@@ -20,6 +20,9 @@ endif
 ifneq ($(shell which kubectl 2>/dev/null),)
 	BASHRCS := $(BASHRCS) .bashrc.kubernetes
 endif
+ifneq ($(shell which starship 2>/dev/null),)
+	BASHRCS := $(BASHRCS) .bashrc.starship
+endif
 BASHRCS := $(BASHRCS) .bashrc.prompt .bashrc.local
 
 # コマンドをインストールした後に$(BASHRCS)が変化するため毎回生成する
