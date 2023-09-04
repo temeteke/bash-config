@@ -4,7 +4,7 @@ if [ -f ~/.bash_profile.local ]; then
 fi
 
 # 環境変数の設定
-export PATH=~/bin:$PATH
+export PATH=~/bin:~/.local/bin:$PATH
 
 # .bashrcを読み込む
 if [ -f ~/.bashrc ]; then
