@@ -9,3 +9,10 @@ test -f /usr/share/fzf/completion.bash && . $_
 # Ubuntu
 test -f /usr/share/doc/fzf/examples/key-bindings.bash && . $_
 test -f /usr/share/doc/fzf/examples/completion.bash && . $_
+
+test -f ${XDG_CONFIG_HOME:-$HOME/.config}/fzf/fzf.bash && . $_
+
+if [ -f ${XDG_CONFIG_HOME:-$HOME/.config}/fzf/fzf-bash-completion.sh ]; then
+    . ${XDG_CONFIG_HOME:-$HOME/.config}/fzf/fzf-bash-completion.sh
+    bind -x '"\t": fzf_bash_completion'
+fi

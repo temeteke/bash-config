@@ -15,7 +15,7 @@ ifneq ($(shell which direnv 2>/dev/null),)
 	BASHRCS := $(BASHRCS) .bashrc.direnv
 endif
 ifneq ($(shell which fzf 2>/dev/null),)
-	BASHRCS := $(BASHRCS) .bashrc.fzf fzf-tab-completion/bash/fzf-bash-completion.sh .bashrc.fzf-tab-completion
+	BASHRCS := $(BASHRCS) .bashrc.fzf
 endif
 ifneq ($(shell which kubectl 2>/dev/null),)
 	BASHRCS := $(BASHRCS) .bashrc.kubernetes
@@ -29,14 +29,8 @@ BASHRCS := $(BASHRCS) .bashrc.prompt .bashrc.local
 .bashrc: $(BASHRCS) FORCE
 	cat $(BASHRCS) > $@
 
-fzf-tab-completion:
-	git clone --depth 1 https://github.com/lincheney/fzf-tab-completion.git $@
-
-fzf-tab-completion/bash/fzf-bash-completion.sh: fzf-tab-completion
-
 clean:
 	rm -f .bashrc
-	rm -fr fzf-tab-completion
 
 install: $(FILES)
 	cp $(FILES) $(PREFIX)/
