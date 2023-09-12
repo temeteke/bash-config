@@ -4,7 +4,7 @@ FILES := .bashrc .bash_profile .bash_logout .inputrc
 .PHONY: all clean install uninstall FORCE
 all: .bashrc
 
-BASHRCS := .bashrc.misc .bashrc.color .bashrc.history .bashrc.alias .bashrc.fzf
+BASHRCS := .bashrc.misc .bashrc.color .bashrc.history .bashrc.fzf shell-config/alias.sh
 ifneq ($(shell which git 2>/dev/null),)
 	BASHRCS := $(BASHRCS) .bashrc.git
 endif
@@ -26,8 +26,14 @@ BASHRCS := $(BASHRCS) .bashrc.prompt .bashrc.local
 .bashrc: $(BASHRCS) FORCE
 	cat $(BASHRCS) > $@
 
+shell-config/alias.sh: shell-config
+
+shell-config:
+	git clone --depth 1 https://github.com/temeteke/shell-config.git $@
+
 clean:
 	rm -f .bashrc
+	rm -fr shell-config
 
 install: $(FILES)
 	cp $(FILES) $(PREFIX)/
