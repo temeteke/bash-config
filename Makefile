@@ -36,9 +36,9 @@ clean:
 	rm -fr shell-config
 
 install: $(FILES)
-	cp $(FILES) $(PREFIX)/
+	cp -a $(FILES) $(PREFIX)/
 
 uninstall:
-	rm $(addprefix $(PREFIX)/, $(FILES))
+	rm -f $(addprefix $(PREFIX)/, $(FILES))
 
 FORCE:
