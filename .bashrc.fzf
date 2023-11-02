@@ -3,13 +3,6 @@
 # https://github.com/junegunn/fzf/pull/1815
 set -o vi
 
-# Arch Linux
-test -f /usr/share/fzf/key-bindings.bash && . $_
-test -f /usr/share/fzf/completion.bash && . $_
-# Ubuntu
-test -f /usr/share/doc/fzf/examples/key-bindings.bash && . $_
-test -f /usr/share/doc/fzf/examples/completion.bash && . $_
-
 test -f ${XDG_CONFIG_HOME:-$HOME/.config}/fzf/fzf.bash && . $_
 test -f ${XDG_CONFIG_HOME:-$HOME/.config}/fzf/preview.sh && . $_
 
