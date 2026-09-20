@@ -1,7 +1,7 @@
 PREFIX := ~
 FILES := .bashrc .bash_profile .bash_logout .inputrc
 
-.PHONY: all clean install uninstall FORCE
+.PHONY: all clean install install-config uninstall uninstall-config FORCE
 all: .bashrc
 
 BASHRCS := .bashrc.misc .bashrc.color .bashrc.history .bashrc.fzf shell-config/alias.sh
@@ -35,10 +35,14 @@ clean:
 	rm -f .bashrc
 	rm -fr shell-config
 
-install: $(FILES)
+install: install-config
+
+install-config: $(FILES)
 	cp -a $(FILES) $(PREFIX)/
 
-uninstall:
+uninstall: uninstall-config
+
+uninstall-config:
 	rm -f $(addprefix $(PREFIX)/, $(FILES))
 
 FORCE:
